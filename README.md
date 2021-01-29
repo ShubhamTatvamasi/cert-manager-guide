@@ -17,8 +17,7 @@ helm repo update
 
 install cert-manager
 ```bash
-helm install \
-  cert-manager jetstack/cert-manager \
+helm install cert-manager jetstack/cert-manager \
   --namespace cert-manager \
   --set installCRDs=true
 ```
