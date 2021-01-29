@@ -15,6 +15,25 @@ helm install cert-manager jetstack/cert-manager \
   --set installCRDs=true
 ```
 
+Setup ClusterIssuer:
+```bash
+kubectl apply -f - << EOF
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-cluster-issuer
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
+EOF
+```
+
 test resources
 ```yaml
 kubectl apply -f - << EOF
