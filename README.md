@@ -33,6 +33,32 @@ spec:
           class: nginx
 EOF
 ```
+---
+
+Sample Ingress:
+```bash
+kubectl apply -f - << EOF
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  tls:
+    - hosts:
+      - nginx.k8s.shubhamtatvamasi.com
+      secretName: letsencrypt-nginx
+  rules:
+    - host: nginx.k8s.shubhamtatvamasi.com
+      http:
+        paths:
+        - backend:
+            serviceName: nginx
+            servicePort: 80
+EOF
+```
+---
 
 test resources
 ```yaml
