@@ -1,22 +1,15 @@
 # cert-manager-guide
 
-create namespace
-```bash
-kubectl create namespace cert-manager
-```
-
 add repo for cert-manager
 ```bash
 helm repo add jetstack https://charts.jetstack.io
-```
-
-update repo
-```bash
 helm repo update
 ```
 
 install cert-manager
 ```bash
+kubectl create namespace cert-manager
+
 helm install cert-manager jetstack/cert-manager \
   --namespace cert-manager \
   --set installCRDs=true
