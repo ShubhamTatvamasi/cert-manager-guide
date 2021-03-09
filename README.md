@@ -8,9 +8,8 @@ helm repo update
 
 install cert-manager
 ```bash
-kubectl create namespace cert-manager
-
 helm install cert-manager jetstack/cert-manager \
+  --create-namespace \
   --namespace cert-manager \
   --set installCRDs=true
 ```
