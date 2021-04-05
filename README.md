@@ -32,6 +32,28 @@ spec:
           class: nginx
 EOF
 ```
+
+Staging:
+```bash
+kubectl apply -f - << EOF
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-staging-issuer
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
+EOF
+```
+
+
+
 ---
 
 Sample Ingress:
