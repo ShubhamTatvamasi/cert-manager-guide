@@ -25,11 +25,11 @@ spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
-      name: letsencrypt-cluster-issuer
+      name: letsencrypt-issuer
     solvers:
     - http01:
         ingress:
-          class: nginx
+          ingressClassName: nginx
 EOF
 ```
 
@@ -48,7 +48,7 @@ spec:
     solvers:
     - http01:
         ingress:
-          class: nginx
+          ingressClassName: nginx
 EOF
 ```
 
