@@ -11,7 +11,7 @@ install cert-manager
 helm install cert-manager jetstack/cert-manager \
   --create-namespace \
   --namespace cert-manager \
-  --set installCRDs=true
+  --set crds.enabled=true
 ```
 
 Setup ClusterIssuer:
