@@ -1,5 +1,9 @@
 # cert-manager-guide
 
+```bash
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.19.1/cert-manager.yaml
+```
+
 add repo for cert-manager
 ```bash
 helm repo add jetstack https://charts.jetstack.io
