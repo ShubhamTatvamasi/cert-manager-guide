@@ -8,16 +8,17 @@ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/
 
 add repo for cert-manager
 ```bash
-helm repo add jetstack https://charts.jetstack.io
+helm repo add cert-manager https://charts.jetstack.io
 helm repo update
 ```
 
 install cert-manager
 ```bash
-helm upgrade -i cert-manager jetstack/cert-manager \
+helm upgrade -i cert-manager cert-manager/cert-manager \
   --create-namespace \
   --namespace cert-manager \
   --set crds.enabled=true \
+  --set config.featureGates.ExperimentalGatewayAPISupport=true \
   --set config.featureGates.ACMEHTTP01IngressPathTypeExact=false
 ```
 
