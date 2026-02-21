@@ -22,6 +22,7 @@ helm upgrade -i cert-manager cert-manager/cert-manager \
   --set config.featureGates.ACMEHTTP01IngressPathTypeExact=false
 ```
 
+Install cert-manager with GatewayAPI support:
 ```bash
 helm upgrade -i cert-manager oci://quay.io/jetstack/charts/cert-manager \
   --create-namespace \
