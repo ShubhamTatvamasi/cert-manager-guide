@@ -22,6 +22,16 @@ helm upgrade -i cert-manager cert-manager/cert-manager \
   --set config.featureGates.ACMEHTTP01IngressPathTypeExact=false
 ```
 
+```bash
+helm upgrade -i cert-manager oci://quay.io/jetstack/charts/cert-manager \
+  --create-namespace \
+  --namespace cert-manager \
+  --set config.apiVersion="controller.config.cert-manager.io/v1alpha1" \
+  --set config.kind="ControllerConfiguration" \
+  --set config.enableGatewayAPI=true
+```
+
+
 Setup ClusterIssuer:
 ```bash
 kubectl apply -f - << EOF
